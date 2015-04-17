@@ -1,0 +1,12 @@
+doctype html
+html
+	head
+		base(href='/')
+		link(href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet")
+		script(src="vendor/angular/angular.js")
+		script(src='vendor/angular-route/angular-route.js')
+		script(src="app.js")
+	body(ng-app="myBlog")
+		top-nav
+		.container
+			.div(ng-view)
