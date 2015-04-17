@@ -92,8 +92,8 @@ app.controller('HomeCtrl', function($scope, NavSvc) {
 app.controller('UsersCtrl', function($scope, NavSvc, UserSvc) {
 	NavSvc.setTab('Users');
 	function activate() {
-		UserSvc.getUsers().then(function(people) {
-			$scope.people = people;
+		UserSvc.getUsers().then(function(users) {
+			$scope.users = users;
 		});
 	}
 	activate();

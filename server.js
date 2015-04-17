@@ -2,29 +2,19 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-var users = [
-		{
-			name:'Brian'
-		},
-		{
-			name:'Jonny'
-		},
-		{
-			name:'Gideon'
-		}
-	];
-
-mongoose.connect('mongodb://localhost/myBlog');
+mongoose.connect('mongodb://localhost/myRateApp');
 
 mongoose.connection.once('open', function() {
 	console.log('Connection open!');
 	User.remove({}, function() {
-		User.create(users);
+		User.create([{name: 'Brian'}, {name: 'Eric'}, {name: 'Kyle'}], function(err, _users) {
+			console.log(err);
+		});
 	});
 });
 
 var UserSchema = new mongoose.Schema({
-	name: {type: String, unique: true}
+	name: String
 });
 
 var User = mongoose.model('User', UserSchema);
